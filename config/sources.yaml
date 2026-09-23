@@ -1,0 +1,1675 @@
+sources:
+  - id: un_peace
+    name: United Nations - Peace and Security
+    authority: official
+    kind: rss
+    url: https://news.un.org/feed/subscribe/en/news/topic/peace-and-security/feed/rss.xml
+    enabled: true
+    topics: [geopolitics, conflict]
+    trust_score: 1.0
+  - id: eia_energy
+    name: EIA - Today in Energy
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/todayinenergy.xml
+    enabled: true
+    topics: [energy]
+    trust_score: 1.0
+  - id: marketwatch_top
+    name: MarketWatch - Top Stories
+    authority: news
+    kind: rss
+    url: https://feeds.content.dowjones.io/public/rss/mw_topstories
+    enabled: true
+    topics: [macro, markets, energy, geopolitics]
+    trust_score: 0.85
+    poll_seconds: 60
+  - id: cnbc_top
+    name: CNBC - Top News
+    authority: news
+    kind: rss
+    url: https://www.cnbc.com/id/100003114/device/rss/rss.html
+    enabled: true
+    topics: [macro, markets, policy, geopolitics]
+    trust_score: 0.85
+    poll_seconds: 60
+
+  - id: cnbc_markets
+    name: CNBC - Markets
+    authority: news
+    kind: rss
+    url: https://www.cnbc.com/id/10000664/device/rss/rss.html
+    enabled: true
+    topics: [macro, markets, energy, policy]
+    trust_score: 0.85
+    poll_seconds: 60
+
+  - id: cnbc_world
+    name: CNBC - World News
+    authority: news
+    kind: rss
+    url: https://www.cnbc.com/id/100727362/device/rss/rss.html
+    enabled: true
+    topics: [markets, policy, geopolitics, energy]
+    trust_score: 0.85
+    poll_seconds: 60
+
+  - id: yahoo_finance_top
+    name: Yahoo Finance - Market Headlines
+    authority: news
+    kind: rss
+    url: https://finance.yahoo.com/news/rssindex
+    enabled: true
+    topics: [macro, markets, energy, geopolitics]
+    trust_score: 0.80
+    poll_seconds: 60
+
+  - id: yahoo_finance_sp500
+    name: Yahoo Finance - S&P 500 Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EGSPC&region=US&lang=en-US
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.80
+    poll_seconds: 60
+
+  - id: yahoo_finance_wti
+    name: Yahoo Finance - WTI Oil Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=CL%3DF&region=US&lang=en-US
+    enabled: true
+    topics: [energy, markets, geopolitics]
+    trust_score: 0.80
+    poll_seconds: 60
+
+  - id: oilprice_main
+    name: OilPrice - Energy News
+    authority: news
+    kind: rss
+    url: https://oilprice.com/rss/main
+    enabled: true
+    topics: [energy, geopolitics, markets]
+    trust_score: 0.80
+    poll_seconds: 60
+  - id: fed_monetary
+    name: Federal Reserve - Monetary Policy
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/press_monetary.xml
+    enabled: true
+    topics: [central_bank, fed, monetary_policy]
+    trust_score: 1.0
+
+  - id: fed_speeches
+    name: Federal Reserve - Speeches and Testimony
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/speeches_and_testimony.xml
+    enabled: true
+    topics: [central_bank, fed, speech]
+    trust_score: 1.0
+
+  - id: fed_all_press
+    name: Federal Reserve - All Press Releases
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/press_all.xml
+    enabled: true
+    topics: [central_bank, fed, monetary_policy, policy]
+    trust_score: 1.0
+
+  - id: ecb_press
+    name: European Central Bank - Press and Speeches
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/press.html
+    enabled: true
+    topics: [central_bank, ecb, monetary_policy, speech]
+    trust_score: 1.0
+
+  - id: boj_whats_new
+    name: Bank of Japan - What's New
+    authority: official
+    kind: rss
+    url: https://www.boj.or.jp/en/rss/whatsnew.xml
+    enabled: true
+    topics: [central_bank, boj, monetary_policy, speech]
+    trust_score: 1.0
+
+  - id: iaea_top_news
+    name: International Atomic Energy Agency
+    authority: official
+    kind: rss
+    url: https://www.iaea.org/feeds/topnews
+    enabled: true
+    topics: [nuclear, geopolitics, energy]
+    trust_score: 1.0
+
+  - id: doe_energy_policy
+    name: U.S. Department of Energy - Articles
+    authority: official
+    kind: html
+    url: https://www.energy.gov/articles
+    enabled: true
+    topics: [energy, nuclear, policy, geopolitics]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/articles/']"
+      link_contains: "/articles/"
+
+  # Public HTML sources. The collector follows only public list pages and
+  # stores title, short context and link; it does not bypass login/paywalls.
+  - id: us_treasury_press
+    name: U.S. Treasury - Press Releases
+    authority: official
+    kind: html
+    url: https://home.treasury.gov/news/press-releases
+    enabled: true
+    topics: [sanctions, policy, geopolitics, tariffs]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/news/press-releases/sb'], a[href*='/news/press-releases/readouts/'], a[href*='/news/press-releases/testimonies/']"
+      link_contains: "/news/press-releases/"
+
+  - id: ofac_actions
+    name: OFAC - Recent Actions
+    authority: official
+    kind: html
+    url: https://ofac.treasury.gov/recent-actions
+    enabled: true
+    topics: [sanctions, geopolitics]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/recent-actions/20']"
+      link_contains: "/recent-actions/"
+
+  - id: ustr_press
+    name: USTR - Press Releases
+    authority: official
+    kind: html
+    url: https://www.ustr.gov/about-us/policy-offices/press-office/press-releases
+    enabled: true
+    topics: [tariffs, trade, export_control]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/press-releases/20']"
+      link_contains: "/press-releases/"
+
+  - id: bis_newsroom
+    name: BIS - Export Controls and Enforcement
+    authority: official
+    kind: html
+    url: https://www.bis.gov/newsroom
+    enabled: false
+    topics: [export_control, sanctions, geopolitics]
+    trust_score: 1.0
+    selectors: {link_contains: "/newsroom/,/press-release/,/enforcement/"}
+
+  - id: whitehouse_briefing
+    name: White House - Briefings and Statements
+    authority: official
+    kind: html
+    url: https://www.whitehouse.gov/briefings-statements/
+    enabled: true
+    topics: [policy, tariffs, geopolitics]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/briefings-statements/2026/']"
+      link_contains: "/briefings-statements/"
+
+  - id: state_press
+    name: U.S. State Department - Press Releases
+    authority: official
+    kind: html
+    url: https://www.state.gov/press-releases/
+    enabled: false
+    topics: [geopolitics, sanctions, policy]
+    trust_score: 1.0
+    selectors: {link_contains: "/press-releases/"}
+
+  - id: dod_releases
+    name: U.S. Department of Defense - Releases
+    authority: official
+    kind: html
+    url: https://www.defense.gov/News/Releases/
+    enabled: false
+    topics: [geopolitics, conflict, policy]
+    trust_score: 1.0
+    selectors: {link_contains: "/news/releases/"}
+
+  - id: opec_press
+    name: OPEC - Press Releases
+    authority: official
+    kind: html
+    url: https://www.opec.org/press-releases.html
+    enabled: false
+    topics: [energy, geopolitics]
+    trust_score: 1.0
+    selectors: {link_contains: "press-release"}
+
+  - id: pboc_news
+    name: PBOC - 货币政策与公开市场
+    authority: official
+    kind: html
+    url: https://www.pbc.gov.cn/goutongjiaoliu/113456/113469/index.html
+    enabled: true
+    topics: [pboc, monetary_policy, china]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/113469/20']"
+      link_contains: "113469"
+
+  - id: china_mfa_news
+    name: 中国外交部 - 国际新闻
+    authority: official
+    kind: html
+    url: https://www.mfa.gov.cn/wjdt_674879/sjxw_674883/
+    enabled: true
+    topics: [geopolitics, china, policy]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/674883/20']"
+      link_contains: "674883"
+
+  - id: china_mofcom_news
+    name: 中国商务部 - 新闻发布
+    authority: official
+    kind: html
+    url: https://www.mofcom.gov.cn/xwfb/index.html
+    enabled: true
+    topics: [trade, tariffs, export_control, china]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/xwfb/'][href*='/2026/']"
+      link_contains: "/xwfb/"
+
+  - id: china_stats_news
+    name: 国家统计局 - 最新发布
+    authority: official
+    kind: html
+    url: https://www.stats.gov.cn/sj/zxfb/
+    enabled: true
+    topics: [macro, china]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='20'][href$='.html']"
+      link_contains: "/zxfb/"
+
+  - id: ec_commission_news
+    name: European Commission - News
+    authority: official
+    kind: html
+    url: https://commission.europa.eu/news-and-media/news_en
+    enabled: true
+    topics: [policy, trade, energy, geopolitics]
+    trust_score: 1.0
+    selectors:
+      item: "a[href*='/news/']"
+      link_contains: "/news/"
+
+  # Access-limited sources remain documented here, but are not scraped without
+  # a licensed feed or a user-provided API key.
+
+  # Expanded public source registry. Official feeds are checked on their own
+  # publication cadence; public market/news feeds are checked every minute.
+  # Paywalled feeds expose headlines only and are never bypassed.
+  - id: fed_press_bcreg
+    name: Federal Reserve - Banking Regulatory Policy
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/press_bcreg.xml
+    enabled: true
+    topics: [fed, regulation, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_press_enforcement
+    name: Federal Reserve - Enforcement Actions
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/press_enforcement.xml
+    enabled: true
+    topics: [fed, regulation, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_press_orders
+    name: Federal Reserve - Banking Orders
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/press_orders.xml
+    enabled: true
+    topics: [fed, regulation, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_press_other
+    name: Federal Reserve - Other Announcements
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/press_other.xml
+    enabled: true
+    topics: [fed, policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speeches_all
+    name: Federal Reserve - All Speeches
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/speeches.xml
+    enabled: true
+    topics: [fed, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_testimony
+    name: Federal Reserve - Testimony
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/testimony.xml
+    enabled: true
+    topics: [fed, speech, policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speech_jefferson
+    name: Federal Reserve - Jefferson
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/s_t_jefferson.xml
+    enabled: true
+    topics: [fed, speech]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speech_bowman
+    name: Federal Reserve - Bowman
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/m_w_Bowman.xml
+    enabled: true
+    topics: [fed, speech]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speech_barr
+    name: Federal Reserve - Barr
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/s_t_barr.xml
+    enabled: true
+    topics: [fed, speech, regulation]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speech_cook
+    name: Federal Reserve - Cook
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/s_t_cook.xml
+    enabled: true
+    topics: [fed, speech]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speech_powell
+    name: Federal Reserve - Powell
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/s_t_powell.xml
+    enabled: true
+    topics: [fed, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_speech_waller
+    name: Federal Reserve - Waller
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/s_t_waller.xml
+    enabled: true
+    topics: [fed, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_credit_liquidity
+    name: Federal Reserve - Credit and Liquidity Programs
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/clp.xml
+    enabled: true
+    topics: [fed, liquidity, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_current_faqs
+    name: Federal Reserve - Current FAQs
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/currentfaqs.xml
+    enabled: true
+    topics: [fed, policy]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_regreform
+    name: Federal Reserve - Regulatory Reform
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/regreform.xml
+    enabled: true
+    topics: [fed, regulation]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_boardmeetings
+    name: Federal Reserve - Board Meetings
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/boardmeetings.xml
+    enabled: true
+    topics: [fed, policy]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_bankinginfo
+    name: Federal Reserve - Banking Information
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/bankinginfo-rss.xml
+    enabled: true
+    topics: [fed, regulation]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_working_papers
+    name: Federal Reserve - Working Papers
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/working_papers.xml
+    enabled: true
+    topics: [fed, research]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: fed_feds_notes
+    name: Federal Reserve - FEDS Notes
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/feds_notes.xml
+    enabled: true
+    topics: [fed, research, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: fed_data_download
+    name: Federal Reserve - Data Download Announcements
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/datadownload.xml
+    enabled: true
+    topics: [fed, macro_data]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: fed_bank_assets
+    name: Federal Reserve - Bank Assets H8
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/h8.xml
+    enabled: true
+    topics: [fed, macro_data, banking]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_chargeoffs
+    name: Federal Reserve - Charge-Offs
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/chgdel.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_commercial_paper
+    name: Federal Reserve - Commercial Paper
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/cp.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_consumer_credit
+    name: Federal Reserve - Consumer Credit G19
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/g19.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_reserves
+    name: Federal Reserve - Reserve Balances H4.1
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/h41.xml
+    enabled: true
+    topics: [fed, liquidity, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_finance_companies
+    name: Federal Reserve - Finance Companies G20
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/g20.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_financial_obligations
+    name: Federal Reserve - Financial Obligations
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/for.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: fed_fx_rates
+    name: Federal Reserve - FX Rates H10
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/h10.xml
+    enabled: true
+    topics: [fed, macro_data, fx]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_industrial_production
+    name: Federal Reserve - Industrial Production G17
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/g17.xml
+    enabled: true
+    topics: [fed, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: fed_policy_rates
+    name: Federal Reserve - Policy Rates
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/prates.xml
+    enabled: true
+    topics: [fed, macro_data, rates]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: fed_interest_rates
+    name: Federal Reserve - Selected Interest Rates H15
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/h15.xml
+    enabled: true
+    topics: [fed, macro_data, rates]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: fed_credit_officer
+    name: Federal Reserve - Credit Officer Survey
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/scoos.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: fed_lending_officer
+    name: Federal Reserve - Senior Loan Officer Survey
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/sloos.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: fed_business_lending
+    name: Federal Reserve - Business Lending Terms E2
+    authority: official
+    kind: rss
+    url: https://www.federalreserve.gov/feeds/e2.xml
+    enabled: true
+    topics: [fed, macro_data, credit]
+    trust_score: 1.0
+    poll_seconds: 1800
+
+  - id: boe_bank_insights
+    name: Bank of England - Bank Insights
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/bank-insights
+    enabled: true
+    topics: [boe, macro, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: boe_events
+    name: Bank of England - Events
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/events
+    enabled: true
+    topics: [boe, speech, policy]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: boe_knowledgebank
+    name: Bank of England - Explainers
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/knowledgebank
+    enabled: true
+    topics: [boe, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: boe_news
+    name: Bank of England - News
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/news
+    enabled: true
+    topics: [boe, policy, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boe_prudential
+    name: Bank of England - Prudential Regulation
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/prudential-regulation-publications
+    enabled: true
+    topics: [boe, regulation, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: boe_publications
+    name: Bank of England - Publications
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/publications
+    enabled: true
+    topics: [boe, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: boe_speeches
+    name: Bank of England - Speeches
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/speeches
+    enabled: true
+    topics: [boe, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boe_statistics
+    name: Bank of England - Statistics
+    authority: official
+    kind: rss
+    url: https://www.bankofengland.co.uk/rss/statistics
+    enabled: true
+    topics: [boe, macro_data, rates]
+    trust_score: 1.0
+    poll_seconds: 600
+
+  - id: rba_exchange_rates
+    name: Reserve Bank of Australia - Exchange Rates
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-exchange-rates.xml
+    enabled: true
+    topics: [rba, fx, macro_data]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: rba_media_releases
+    name: Reserve Bank of Australia - Media Releases
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-media-releases.xml
+    enabled: true
+    topics: [rba, policy, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: rba_speeches
+    name: Reserve Bank of Australia - Speeches
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-speeches.xml
+    enabled: true
+    topics: [rba, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: rba_webcasts
+    name: Reserve Bank of Australia - Speech Webcasts
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-speeches-webcast.xml
+    enabled: true
+    topics: [rba, speech]
+    trust_score: 0.95
+    poll_seconds: 900
+  - id: rba_bulletin
+    name: Reserve Bank of Australia - Bulletin
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-bulletin.xml
+    enabled: true
+    topics: [rba, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: rba_financial_stability
+    name: Reserve Bank of Australia - Financial Stability Review
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-fsr.xml
+    enabled: true
+    topics: [rba, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: rba_monetary_policy
+    name: Reserve Bank of Australia - Monetary Policy Statement
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-smp.xml
+    enabled: true
+    topics: [rba, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: rba_research
+    name: Reserve Bank of Australia - Research Papers
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-rdp.xml
+    enabled: true
+    topics: [rba, research, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: rba_foi
+    name: Reserve Bank of Australia - FOI Releases
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-foi.xml
+    enabled: true
+    topics: [rba, policy]
+    trust_score: 0.9
+    poll_seconds: 1800
+  - id: rba_table_changes
+    name: Reserve Bank of Australia - Statistical Table Changes
+    authority: official
+    kind: rss
+    url: https://www.rba.gov.au/rss/rss-cb-changes-to-tables.xml
+    enabled: true
+    topics: [rba, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+
+  - id: boc_press
+    name: Bank of Canada - Press
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/press/feed/
+    enabled: true
+    topics: [boc, policy, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boc_announcements
+    name: Bank of Canada - Announcements
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/announcements/feed/
+    enabled: true
+    topics: [boc, policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boc_market_notices
+    name: Bank of Canada - Market Notices
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/notices/feed/
+    enabled: true
+    topics: [boc, markets, liquidity]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: boc_media_advisories
+    name: Bank of Canada - Media Advisories
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/media-advisories/feed/
+    enabled: true
+    topics: [boc, policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boc_news
+    name: Bank of Canada - News
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/utility/news/feed/
+    enabled: true
+    topics: [boc, macro, policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boc_press_releases
+    name: Bank of Canada - Press Releases
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/press-releases/feed/
+    enabled: true
+    topics: [boc, policy, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boc_speeches
+    name: Bank of Canada - Speeches
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/speeches/feed/
+    enabled: true
+    topics: [boc, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: boc_upcoming_events
+    name: Bank of Canada - Upcoming Events
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/upcoming-events/feed/
+    enabled: true
+    topics: [boc, events]
+    trust_score: 0.95
+    poll_seconds: 900
+  - id: boc_webcasts
+    name: Bank of Canada - Webcasts
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/webcasts/feed/
+    enabled: true
+    topics: [boc, speech]
+    trust_score: 0.95
+    poll_seconds: 900
+  - id: boc_business_outlook
+    name: Bank of Canada - Business Outlook Survey
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/bos/feed/
+    enabled: true
+    topics: [boc, macro_data]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: boc_financial_stability
+    name: Bank of Canada - Financial Stability Report
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/fsr/feed/
+    enabled: true
+    topics: [boc, financial_stability]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: boc_monetary_policy_report
+    name: Bank of Canada - Monetary Policy Report
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/mpr/feed/
+    enabled: true
+    topics: [boc, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 1800
+  - id: boc_deliberations
+    name: Bank of Canada - Summary of Deliberations
+    authority: official
+    kind: rss
+    url: https://www.bankofcanada.ca/content_type/summary-of-deliberations/feed/
+    enabled: true
+    topics: [boc, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 1800
+
+  - id: snb_news
+    name: Swiss National Bank - New on Website
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/news
+    enabled: true
+    topics: [snb, policy, macro]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: snb_press
+    name: Swiss National Bank - Press Releases
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/pressrel
+    enabled: true
+    topics: [snb, policy, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: snb_speeches
+    name: Swiss National Bank - Speeches
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/speeches
+    enabled: true
+    topics: [snb, speech, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: snb_interviews
+    name: Swiss National Bank - Interviews
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/interviews
+    enabled: true
+    topics: [snb, speech]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: snb_monetary_policy
+    name: Swiss National Bank - Monetary Policy
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/mopo
+    enabled: true
+    topics: [snb, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: snb_quarterly_bulletin
+    name: Swiss National Bank - Quarterly Bulletin
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/quartbul
+    enabled: true
+    topics: [snb, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: snb_statistics
+    name: Swiss National Bank - Statistics
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/statistics
+    enabled: true
+    topics: [snb, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: snb_annual_report
+    name: Swiss National Bank - Annual Report
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/annrep
+    enabled: true
+    topics: [snb, policy]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: snb_research_reports
+    name: Swiss National Bank - Research Reports
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/researchreports
+    enabled: true
+    topics: [snb, research, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: snb_papers
+    name: Swiss National Bank - Working Papers
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/papers
+    enabled: true
+    topics: [snb, research]
+    trust_score: 0.9
+    poll_seconds: 1800
+  - id: snb_bills
+    name: Swiss National Bank - SNB Bills
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/snbbbills
+    enabled: true
+    topics: [snb, liquidity, rates]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: snb_bonds
+    name: Swiss National Bank - Confederation Bonds
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/bund
+    enabled: true
+    topics: [snb, bonds, rates]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: snb_adhoc
+    name: Swiss National Bank - Ad Hoc Announcements
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/adhoc
+    enabled: true
+    topics: [snb, policy, markets]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: snb_business_cycle
+    name: Swiss National Bank - Business Cycle Signals
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/buscycletrends
+    enabled: true
+    topics: [snb, macro_data]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: snb_interest_rates
+    name: Swiss National Bank - Current Interest Rates
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/interestRates
+    enabled: true
+    topics: [snb, rates]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: snb_exchange_rates
+    name: Swiss National Bank - Current Exchange Rates
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/exchangeRates
+    enabled: true
+    topics: [snb, fx]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: snb_usd_auctions
+    name: Swiss National Bank - USD Auctions
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/usdauctions
+    enabled: true
+    topics: [snb, liquidity, fx]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: snb_repos
+    name: Swiss National Bank - Repo Operations
+    authority: official
+    kind: rss
+    url: https://www.snb.ch/public/rss/en/repos
+    enabled: true
+    topics: [snb, liquidity, rates]
+    trust_score: 1.0
+    poll_seconds: 300
+
+  - id: ecb_blog
+    name: European Central Bank - Blog
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/blog.html
+    enabled: true
+    topics: [ecb, macro, policy]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: ecb_statistical_releases
+    name: European Central Bank - Statistical Releases
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/statpress.html
+    enabled: true
+    topics: [ecb, macro_data]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: ecb_operations
+    name: European Central Bank - Market Operations
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/operations.html
+    enabled: true
+    topics: [ecb, liquidity, monetary_policy]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: ecb_yield_curve
+    name: European Central Bank - Yield Curve
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/yc.html
+    enabled: true
+    topics: [ecb, rates, bonds]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: ecb_research_bulletin
+    name: European Central Bank - Research Bulletin
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/rbu.html
+    enabled: true
+    topics: [ecb, research, macro]
+    trust_score: 0.95
+    poll_seconds: 1800
+  - id: ecb_fx_usd
+    name: European Central Bank - USD Reference Rate
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/fxref-usd.html
+    enabled: true
+    topics: [ecb, fx]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: ecb_fx_jpy
+    name: European Central Bank - JPY Reference Rate
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/fxref-jpy.html
+    enabled: true
+    topics: [ecb, fx]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: ecb_fx_gbp
+    name: European Central Bank - GBP Reference Rate
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/fxref-gbp.html
+    enabled: true
+    topics: [ecb, fx]
+    trust_score: 1.0
+    poll_seconds: 300
+  - id: ecb_fx_cny
+    name: European Central Bank - CNY Reference Rate
+    authority: official
+    kind: rss
+    url: https://www.ecb.europa.eu/rss/fxref-cny.html
+    enabled: true
+    topics: [ecb, fx, china]
+    trust_score: 1.0
+    poll_seconds: 300
+
+  - id: bloomberg_markets_public
+    name: Bloomberg - Markets Headlines
+    authority: news
+    kind: rss
+    url: https://feeds.bloomberg.com/markets/news.rss
+    enabled: true
+    topics: [markets, macro, energy, geopolitics]
+    trust_score: 0.90
+    poll_seconds: 60
+  - id: bloomberg_politics_public
+    name: Bloomberg - Politics Headlines
+    authority: news
+    kind: rss
+    url: https://feeds.bloomberg.com/politics/news.rss
+    enabled: true
+    topics: [policy, geopolitics, markets]
+    trust_score: 0.90
+    poll_seconds: 60
+  - id: bloomberg_economics_public
+    name: Bloomberg - Economics Headlines
+    authority: news
+    kind: rss
+    url: https://feeds.bloomberg.com/economics/news.rss
+    enabled: true
+    topics: [macro, markets, policy]
+    trust_score: 0.90
+    poll_seconds: 60
+  - id: wsj_markets_public
+    name: Wall Street Journal - Markets Headlines
+    authority: news
+    kind: rss
+    url: https://feeds.a.dj.com/rss/RSSMarketsMain.xml
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: wsj_world_public
+    name: Wall Street Journal - World Headlines
+    authority: news
+    kind: rss
+    url: https://feeds.a.dj.com/rss/RSSWorldNews.xml
+    enabled: true
+    topics: [geopolitics, markets, energy]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: wsj_business_public
+    name: Wall Street Journal - Business Headlines
+    authority: news
+    kind: rss
+    url: https://feeds.a.dj.com/rss/RSSBusiness.xml
+    enabled: false
+    topics: [markets, policy, macro]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: ft_home_public
+    name: Financial Times - Home Headlines
+    authority: news
+    kind: rss
+    url: https://www.ft.com/rss/home
+    enabled: true
+    topics: [markets, macro, geopolitics]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: ft_markets_public
+    name: Financial Times - Markets Headlines
+    authority: news
+    kind: rss
+    url: https://www.ft.com/rss/markets
+    enabled: true
+    topics: [markets, rates, fx]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: ft_world_public
+    name: Financial Times - World Headlines
+    authority: news
+    kind: rss
+    url: https://www.ft.com/rss/world
+    enabled: true
+    topics: [geopolitics, markets, energy]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: ft_global_economy_public
+    name: Financial Times - Global Economy
+    authority: news
+    kind: rss
+    url: https://www.ft.com/rss/global-economy
+    enabled: true
+    topics: [macro, policy, markets]
+    trust_score: 0.88
+    poll_seconds: 60
+  - id: business_insider_markets
+    name: Business Insider - Markets
+    authority: news
+    kind: rss
+    url: https://www.businessinsider.com/markets/rss
+    enabled: false
+    topics: [markets, macro]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: business_insider_economy
+    name: Business Insider - Economy
+    authority: news
+    kind: rss
+    url: https://www.businessinsider.com/economy/rss
+    enabled: false
+    topics: [macro, policy]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: business_insider_finance
+    name: Business Insider - Finance
+    authority: news
+    kind: rss
+    url: https://www.businessinsider.com/finance/rss
+    enabled: false
+    topics: [markets, macro, policy]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: forbes_business
+    name: Forbes - Business
+    authority: news
+    kind: rss
+    url: https://www.forbes.com/business/feed/
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: forbes_finance
+    name: Forbes - Finance
+    authority: news
+    kind: rss
+    url: https://www.forbes.com/finance/feed/
+    enabled: true
+    topics: [markets, macro, rates]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: forbes_markets
+    name: Forbes - Markets
+    authority: news
+    kind: rss
+    url: https://www.forbes.com/markets/feed/
+    enabled: false
+    topics: [markets, macro, energy]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: forbes_economy
+    name: Forbes - Economy
+    authority: news
+    kind: rss
+    url: https://www.forbes.com/economy/feed/
+    enabled: false
+    topics: [macro, policy]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: fortune_finance
+    name: Fortune - Finance
+    authority: news
+    kind: rss
+    url: https://fortune.com/finance/feed/
+    enabled: false
+    topics: [markets, macro]
+    trust_score: 0.76
+    poll_seconds: 60
+  - id: fortune_main
+    name: Fortune - Headlines
+    authority: news
+    kind: rss
+    url: https://fortune.com/feed/
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.76
+    poll_seconds: 60
+  - id: guardian_business
+    name: The Guardian - Business
+    authority: news
+    kind: rss
+    url: https://www.theguardian.com/business/rss
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: guardian_world
+    name: The Guardian - World
+    authority: news
+    kind: rss
+    url: https://www.theguardian.com/world/rss
+    enabled: true
+    topics: [geopolitics, energy, markets]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: guardian_us
+    name: The Guardian - US News
+    authority: news
+    kind: rss
+    url: https://www.theguardian.com/us-news/rss
+    enabled: true
+    topics: [policy, geopolitics, markets]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: bbc_business
+    name: BBC - Business
+    authority: news
+    kind: rss
+    url: https://feeds.bbci.co.uk/news/business/rss.xml
+    enabled: false
+    topics: [markets, macro, policy]
+    trust_score: 0.86
+    poll_seconds: 60
+  - id: bbc_world
+    name: BBC - World
+    authority: news
+    kind: rss
+    url: https://feeds.bbci.co.uk/news/world/rss.xml
+    enabled: false
+    topics: [geopolitics, energy, markets]
+    trust_score: 0.86
+    poll_seconds: 60
+  - id: bbc_politics
+    name: BBC - Politics
+    authority: news
+    kind: rss
+    url: https://feeds.bbci.co.uk/news/politics/rss.xml
+    enabled: false
+    topics: [policy, geopolitics, markets]
+    trust_score: 0.86
+    poll_seconds: 60
+  - id: sky_business
+    name: Sky News - Business
+    authority: news
+    kind: rss
+    url: https://feeds.skynews.com/feeds/rss/business.xml
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: sky_world
+    name: Sky News - World
+    authority: news
+    kind: rss
+    url: https://feeds.skynews.com/feeds/rss/world.xml
+    enabled: true
+    topics: [geopolitics, energy, markets]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: sky_politics
+    name: Sky News - Politics
+    authority: news
+    kind: rss
+    url: https://feeds.skynews.com/feeds/rss/politics.xml
+    enabled: true
+    topics: [policy, geopolitics, markets]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: ap_business
+    name: Associated Press - Business
+    authority: news
+    kind: rss
+    url: https://feeds.apnews.com/rss/apf-business
+    enabled: false
+    topics: [markets, macro, policy]
+    trust_score: 0.86
+    poll_seconds: 60
+  - id: ap_top
+    name: Associated Press - Top News
+    authority: news
+    kind: rss
+    url: https://feeds.apnews.com/rss/apf-topnews
+    enabled: false
+    topics: [policy, geopolitics, markets]
+    trust_score: 0.86
+    poll_seconds: 60
+  - id: ap_world
+    name: Associated Press - World
+    authority: news
+    kind: rss
+    url: https://feeds.apnews.com/rss/apf-worldnews
+    enabled: false
+    topics: [geopolitics, energy, markets]
+    trust_score: 0.86
+    poll_seconds: 60
+
+  - id: fxstreet_news
+    name: FXStreet - Forex and Macro News
+    authority: news
+    kind: rss
+    url: https://www.fxstreet.com/rss/news
+    enabled: true
+    topics: [fx, macro, rates, commodities]
+    trust_score: 0.82
+    poll_seconds: 60
+  - id: forexlive_news
+    name: ForexLive - Market News
+    authority: news
+    kind: rss
+    url: https://www.forexlive.com/feed/news/
+    enabled: true
+    topics: [fx, macro, rates, geopolitics]
+    trust_score: 0.82
+    poll_seconds: 60
+  - id: dailyfx_market_news
+    name: DailyFX - Market News
+    authority: news
+    kind: rss
+    url: https://www.dailyfx.com/feeds/market-news
+    enabled: false
+    topics: [fx, macro, rates, commodities]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: kitco_news
+    name: Kitco - Metals News
+    authority: news
+    kind: rss
+    url: https://www.kitco.com/rss/news.xml
+    enabled: false
+    topics: [gold, metals, commodities, geopolitics]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: rigzone_news
+    name: Rigzone - Oil and Gas News
+    authority: news
+    kind: rss
+    url: https://www.rigzone.com/news/rss/
+    enabled: false
+    topics: [energy, oil, gas, geopolitics]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: offshore_energy_news
+    name: Offshore Energy - Energy and Shipping
+    authority: news
+    kind: rss
+    url: https://www.offshore-energy.biz/feed/
+    enabled: true
+    topics: [energy, shipping, oil, gas]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: iea_news
+    name: International Energy Agency - News
+    authority: official
+    kind: rss
+    url: https://www.iea.org/rss/news.xml
+    enabled: false
+    topics: [energy, oil, gas, policy]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: eia_steo
+    name: EIA - Short-Term Energy Outlook
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/steo.xml
+    enabled: false
+    topics: [energy, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: eia_petroleum
+    name: EIA - Petroleum
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/petroleum.xml
+    enabled: false
+    topics: [energy, oil, macro_data]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: eia_natural_gas
+    name: EIA - Natural Gas
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/naturalgas.xml
+    enabled: false
+    topics: [energy, gas, macro_data]
+    trust_score: 1.0
+    poll_seconds: 600
+  - id: eia_electricity
+    name: EIA - Electricity
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/electricity.xml
+    enabled: false
+    topics: [energy, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: eia_coal
+    name: EIA - Coal
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/coal.xml
+    enabled: false
+    topics: [energy, macro_data]
+    trust_score: 1.0
+    poll_seconds: 900
+  - id: eia_renewable
+    name: EIA - Renewable Energy
+    authority: official
+    kind: rss
+    url: https://www.eia.gov/rss/renewable.xml
+    enabled: false
+    topics: [energy, policy]
+    trust_score: 1.0
+    poll_seconds: 900
+
+  - id: yahoo_dow
+    name: Yahoo Finance - Dow Jones Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EDJI&region=US&lang=en-US
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_nasdaq
+    name: Yahoo Finance - Nasdaq Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EIXIC&region=US&lang=en-US
+    enabled: true
+    topics: [markets, macro, policy]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_brent
+    name: Yahoo Finance - Brent Crude Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=BZ%3DF&region=US&lang=en-US
+    enabled: true
+    topics: [energy, oil, geopolitics]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_gold
+    name: Yahoo Finance - Gold Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=GC%3DF&region=US&lang=en-US
+    enabled: true
+    topics: [gold, commodities, geopolitics]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_silver
+    name: Yahoo Finance - Silver Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=SI%3DF&region=US&lang=en-US
+    enabled: true
+    topics: [metals, commodities, markets]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: yahoo_copper
+    name: Yahoo Finance - Copper Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=HG%3DF&region=US&lang=en-US
+    enabled: true
+    topics: [metals, commodities, macro]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: yahoo_natural_gas
+    name: Yahoo Finance - Natural Gas Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=NG%3DF&region=US&lang=en-US
+    enabled: true
+    topics: [energy, gas, commodities]
+    trust_score: 0.78
+    poll_seconds: 60
+  - id: yahoo_eurusd
+    name: Yahoo Finance - EUR/USD Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=EURUSD%3DX&region=US&lang=en-US
+    enabled: true
+    topics: [fx, rates, macro]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_usdjpy
+    name: Yahoo Finance - USD/JPY Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=JPY%3DX&region=US&lang=en-US
+    enabled: true
+    topics: [fx, rates, macro]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_usdcny
+    name: Yahoo Finance - USD/CNY Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=CNY%3DX&region=US&lang=en-US
+    enabled: true
+    topics: [fx, china, macro]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_gbpusd
+    name: Yahoo Finance - GBP/USD Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=GBPUSD%3DX&region=US&lang=en-US
+    enabled: true
+    topics: [fx, rates, macro]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_vix
+    name: Yahoo Finance - VIX Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EVIX&region=US&lang=en-US
+    enabled: true
+    topics: [markets, volatility, macro]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_us10y
+    name: Yahoo Finance - US 10Y Yield Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5ETNX&region=US&lang=en-US
+    enabled: true
+    topics: [rates, bonds, macro]
+    trust_score: 0.8
+    poll_seconds: 60
+  - id: yahoo_us5y
+    name: Yahoo Finance - US 5Y Yield Feed
+    authority: news
+    kind: rss
+    url: https://feeds.finance.yahoo.com/rss/2.0/headline?s=%5EFVX&region=US&lang=en-US
+    enabled: true
+    topics: [rates, bonds, macro]
+    trust_score: 0.8
+    poll_seconds: 60

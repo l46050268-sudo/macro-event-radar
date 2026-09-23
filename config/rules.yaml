@@ -1,0 +1,227 @@
+event_types:
+  rate_decision:
+    weight: 36
+    keywords: [fomc statement, fomc, monetary policy decision, monetary policy, interest rate decision, policy rate, rate hike, rate cut, deposit facility, money market operations, market operations, yield curve control, lpr, mlf, reserve requirement, 利率决议, 货币政策, 公开市场, 降息, 加息, 降准]
+  sanctions:
+    weight: 32
+    keywords: [sanction, designated, designation, ofac, asset freeze, 制裁, 实体清单]
+  export_control:
+    weight: 30
+    keywords: [export control, entity list, export restriction, bis rule, 出口管制, 出口限制]
+  tariff_trade:
+    weight: 28
+    keywords: [tariff, tariffs, section 301, trade restriction, trade restrictions, 关税, 贸易限制]
+  conflict:
+    weight: 34
+    keywords: [missile, airstrike, attack, ceasefire, invasion, military operation, drone strike, war, escalation, security pact, security deal, stock surge, stocks surge, 袭击, 导弹, 空袭, 停火, 冲突, 战争, 升级, 安全协议, 安全协议]
+  nuclear:
+    weight: 31
+    keywords: [nuclear facility, nuclear power plant, uranium enrichment, safeguards, director general statement, 核设施, 核电站, 铀浓缩, 保障监督]
+  energy_supply:
+    weight: 29
+    keywords: [opec, production cut, output cut, oil supply, oil prices, energy stocks, fuel costs, supply disruption, strategic petroleum reserve, natural gas, lng, pipeline, tanker, shipping lane, 减产, 石油供应, 油价, 能源股, 燃料成本, 天然气, 液化天然气, 管道, 油轮, 航运]
+  policy_speech:
+    weight: 16
+    keywords: [speech, remarks, testimony, interview, talks, speaks, comments, press conference, treasury secretary, finance minister, central bank governor, 讲话, 记者会, 证词, 财政部长, 央行行长]
+  major_policy:
+    weight: 25
+    keywords: [executive order, legislation, bill, law, policy package, regulation, budget, fiscal, debt ceiling, government shutdown, stimulus, 行政令, 法案, 法规, 财政, 预算, 国债, 刺激]
+  macro_data:
+    weight: 24
+    keywords: [cpi, ppi, gdp, nonfarm payrolls, payrolls, unemployment, employment, retail sales, industrial production, consumer price, producer price, inflation, higher interest rates, macro data, 经济运行, 工业增加值, 零售, 就业, 失业, 物价, 国民经济]
+
+impact_keywords:
+  - keywords: [fomc, federal reserve, fed, powell, interest rate, inflation]
+    assets: [UST, USD, XAU, SPX, NDX]
+  - keywords: [ecb, euro area, lagarde]
+    assets: [EUR, BUND, STOXX50]
+  - keywords: [boj, bank of japan, yen, yield curve control]
+    assets: [JPY, JGB, NIKKEI]
+  - keywords: [pboc, people's bank of china, lpr, mlf, reserve requirement, 中国人民银行, 降准]
+    assets: [CNY, CNH, CGB, CSI300, HSI]
+  - keywords: [opec, oil, crude, petroleum, saudi]
+    assets: [BRENT, WTI, CAD, NOK, ENERGY_EQUITIES]
+  - keywords: [nuclear facility, nuclear power plant, uranium, enrichment, safeguards]
+    assets: [BRENT, WTI, XAU, USD, ILS]
+  - keywords: [sanction, ofac, export control, entity list, tariff]
+    assets: [USD, CNH, SPX, HSI, SEMICONDUCTORS]
+  - keywords: [missile, airstrike, attack, ceasefire, invasion]
+    assets: [XAU, USD, UST, BRENT, WTI, DEFENSE_EQUITIES]
+
+critical_terms:
+  - emergency
+  - unscheduled
+  - effective immediately
+  - military operation
+  - nuclear facility
+  - state of emergency
+  - 紧急
+  - 立即生效
+  - 军事行动
+  - 核设施
+
+# Hard gate for the user's market-impact radar. A fetched item is stored only
+# when it has a recognized transmission channel to rates, FX, credit, equities,
+# commodities, shipping or energy. General war, human-rights and aid coverage
+# is deliberately excluded unless the same item contains a concrete market
+# trigger such as sanctions, blockade, oil disruption or military escalation.
+market_gate:
+  allowed_event_types: [rate_decision, sanctions, export_control, tariff_trade, conflict, nuclear, energy_supply, policy_speech, major_policy, macro_data]
+  market_signal_keywords:
+    - fomc
+    - federal reserve
+    - fed chair
+    - ecb
+    - european central bank
+    - boj
+    - bank of japan
+    - pboc
+    - people's bank of china
+    - interest rate
+    - policy rate
+    - monetary policy
+    - inflation
+    - yield curve
+    - lpr
+    - mlf
+    - reserve requirement
+    - liquidity
+    - exchange rate
+    - capital flows
+    - treasury international capital
+    - foreign holdings
+    - cpi
+    - ppi
+    - gdp
+    - payrolls
+    - unemployment
+    - employment
+    - retail sales
+    - industrial production
+    - economic growth
+    - sanctions
+    - sanction
+    - ofac
+    - designated
+    - designation
+    - asset freeze
+    - export control
+    - entity list
+    - export restriction
+    - tariff
+    - trade restriction
+    - trade barrier
+    - embargo
+    - customs duty
+    - opec
+    - crude
+    - oil supply
+    - oil prices
+    - energy stocks
+    - fuel costs
+    - petroleum
+    - natural gas
+    - lng
+    - pipeline
+    - tanker
+    - shipping lane
+    - strategic petroleum reserve
+    - nuclear facility
+    - nuclear power plant
+    - uranium
+    - enrichment
+    - missile
+    - airstrike
+    - drone strike
+    - attack
+    - invasion
+    - military operation
+    - blockade
+    - ceasefire
+    - red sea
+    - strait
+    - executive order
+    - legislation
+    - bill
+    - law
+    - regulation
+    - budget
+    - fiscal
+    - debt ceiling
+    - government shutdown
+    - stimulus
+    - treasury secretary
+    - bond market
+    - bond yields
+    - stock futures
+    - equity futures
+    - risk premium
+    - credit spreads
+    - market reaction
+    - tariffs
+    - higher interest rates
+    - security deal
+    - stock surge
+    - stocks surge
+    - supply chain
+    - 利率
+    - 货币政策
+    - 公开市场
+    - 降息
+    - 加息
+    - 降准
+    - 流动性
+    - 汇率
+    - 资本流动
+    - 经济运行
+    - 工业增加值
+    - 零售
+    - 就业
+    - 失业
+    - 物价
+    - 制裁
+    - 出口管制
+    - 实体清单
+    - 出口限制
+    - 关税
+    - 贸易限制
+    - 贸易壁垒
+    - 原油
+    - 石油供应
+    - 油价
+    - 能源股
+    - 燃料成本
+    - 天然气
+    - 液化天然气
+    - 管道
+    - 油轮
+    - 航运
+    - 核设施
+    - 铀浓缩
+    - 导弹
+    - 空袭
+    - 无人机袭击
+    - 军事行动
+    - 封锁
+    - 停火
+    - 海峡
+    - 行政令
+    - 法案
+    - 法规
+    - 财政
+    - 预算
+    - 国债
+    - 刺激
+    - 财政部长
+    - 债券市场
+    - 债券收益率
+    - 股指期货
+    - 风险溢价
+    - 安全协议
+    - 股价上涨
+    - 供应链
+  market_conflict_keywords: [missile, airstrike, drone strike, attack, invasion, military operation, blockade, ceasefire, escalation, security pact, red sea, strait, shipping lane, tanker, pipeline, oil supply, oil prices, nuclear facility, 导弹, 空袭, 无人机袭击, 军事行动, 封锁, 停火, 升级, 安全协议, 海峡, 航运, 油轮, 管道, 石油供应, 油价, 核设施]
+  high_confidence_market_keywords: [fomc, interest rate, interest rates, higher interest rates, policy rate, monetary policy, rate hike, rate cut, lpr, mlf, reserve requirement, cpi, ppi, gdp, payrolls, unemployment, sanctions, sanction, ofac, asset freeze, export control, entity list, tariff, tariffs, trade restriction, trade restrictions, trade barrier, embargo, opec, crude, oil supply, oil prices, energy stocks, fuel costs, petroleum, natural gas, lng, pipeline, tanker, shipping lane, strategic petroleum reserve, nuclear facility, nuclear power plant, uranium, enrichment, missile, airstrike, drone strike, invasion, military operation, blockade, ceasefire, escalation, security pact, security deal, stock surge, stocks surge, red sea, strait, executive order, debt ceiling, government shutdown, stimulus, budget, fiscal, treasury secretary, bond market, bond yields, stock futures, equity futures, risk premium, credit spreads, market reaction, supply chain, 利率, 货币政策, 公开市场, 降息, 加息, 降准, CPI, PPI, GDP, 就业, 失业, 制裁, 出口管制, 实体清单, 关税, 贸易限制, 贸易壁垒, 原油, 石油供应, 油价, 能源股, 燃料成本, 天然气, 液化天然气, 管道, 油轮, 航运, 核设施, 铀浓缩, 导弹, 空袭, 无人机袭击, 军事行动, 封锁, 停火, 升级, 安全协议, 海峡, 行政令, 国债, 刺激, 财政部长, 债券市场, 债券收益率, 股指期货, 风险溢价, 供应链]
+  exclude_if_no_market_signal: [human rights, humanitarian, peacekeeping, refugee, refugees, civilian protection, civilian casualties, violence against civilians, sexual violence, war crimes, prisoners of war, pow, development assistance, aid, gender, children, women, cultural heritage, peacebuilding, counter-terrorism, terrorism briefing, anniversary, tribute, first responders, memorial, commemorate, commemoration, 9/11, 人权, 人道主义, 难民, 平民保护, 平民伤亡, 性暴力, 战争罪, 战俘, 发展援助, 援助, 妇女, 儿童, 文化遗产, 和平建设, 维和, 纪念, 悼念]
+  exclude_generic_market_noise: [bitcoin, cryptocurrency, crypto, ethereum, meme stock, meme stocks, premarket movers, stock picks, stock to buy, earnings, quarterly results, ipo, dividend, analyst upgrade, analyst downgrade, investor guide, airline, airlines, restaurant, retail chain, movie, television, entertainment, celebrity, real estate listing, 人工智能股票, 加密货币, 比特币, 个股, 财报, 分红, 投资指南]
+  hard_exclude_generic_market_noise: [bitcoin, cryptocurrency, crypto, ethereum, meme stock, meme stocks, premarket movers, stock picks, stock to buy, earnings, quarterly results, ipo, dividend, analyst upgrade, analyst downgrade, investor guide, airline, airlines, restaurant, retail chain, movie, television, entertainment, celebrity, real estate listing, 人工智能股票, 加密货币, 比特币, 个股, 财报, 分红, 投资指南]
